@@ -12,14 +12,14 @@ def home():
 
 @app.route('/current_datetime')
 def current_datetime():
-    
+    format_time = datetime.today().strftime("%d/%m/%y %I:%M %p")
     msg = {}
     if(time < 12):
-        msg = {"current_datetime": datetime.now(),"message": "Bom dia!"}
+        msg = {"current_datetime": format_time,"message": "Bom dia!"}
     elif(time > 12) and (time < 18):
-        msg = {"current_datetime": datetime.now(),"message": "Boa tarde!"}
+        msg = {"current_datetime": format_time,"message": "Boa tarde!"}
     else:
-        msg = {"current_datetime": datetime.now(),"message": "Boa noite!"}
+        msg = {"current_datetime": format_time,"message": "Boa noite!"}
     
     return msg
 
